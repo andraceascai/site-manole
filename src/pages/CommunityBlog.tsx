@@ -7,7 +7,7 @@ const EMOJIS = ["❤️", "👏", "🎭", "🌟", "🔥", "😂"];
 
 export default function CommunityBlog() {
   useSEO(
-    "Community Blog - Manole",
+    "Community Blog - Manoleee",
     "Join the community! Share your thoughts, stories, and connect with fellow Manole fans and art enthusiasts."
   );
 
