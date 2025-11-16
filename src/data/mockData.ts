@@ -78,48 +78,6 @@ export const portfolioPhotos: PortfolioPhoto[] = [
   
 ];
 
-export const previousShows: PreviousShow[] = [
-  {
-    id: '1',
-    title: 'Hamlet',
-    description: 'A profound exploration of revenge, madness, and mortality. This modern interpretation of Shakespeare\'s masterpiece brought fresh perspective to the classic tale while honoring its timeless themes. The production ran for 12 weeks to sold-out audiences and received critical acclaim.',
-    role: 'Hamlet',
-    venue: 'Royal Theater, New York',
-    show_date: '2023-06-15',
-    image_url: 'https://images.pexels.com/photos/3662630/pexels-photo-3662630.jpeg?auto=compress&cs=tinysrgb&w=800',
-    gallery_images: [
-      'https://images.pexels.com/photos/3662630/pexels-photo-3662630.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.pexels.com/photos/3662618/pexels-photo-3662618.jpeg?auto=compress&cs=tinysrgb&w=600'
-    ]
-  },
-  {
-    id: '2',
-    title: 'A Streetcar Named Desire',
-    description: 'Tennessee Williams\' gripping drama about desire, delusion, and the collision of old and new South. A raw and emotional performance that left audiences spellbound. This production was nominated for multiple theater awards.',
-    role: 'Stanley Kowalski',
-    venue: 'Broadway Theater, NYC',
-    show_date: '2023-03-20',
-    image_url: 'https://images.pexels.com/photos/3662618/pexels-photo-3662618.jpeg?auto=compress&cs=tinysrgb&w=800',
-    gallery_images: [
-      'https://images.pexels.com/photos/3662618/pexels-photo-3662618.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.pexels.com/photos/3662630/pexels-photo-3662630.jpeg?auto=compress&cs=tinysrgb&w=600'
-    ]
-  },
-  {
-    id: '3',
-    title: 'The Importance of Being Earnest',
-    description: 'Oscar Wilde\'s witty comedy of manners, mistaken identities, and Victorian social satire. A delightfully entertaining performance that showcased the perfect balance of humor and sophistication.',
-    role: 'Jack Worthing',
-    venue: 'West End Theater, London',
-    show_date: '2022-11-10',
-    image_url: 'https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=800',
-    gallery_images: [
-      'https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=600'
-    ]
-  }
-];
-
 export const upcomingShows: UpcomingShow[] = [
   {
     id: '1',
@@ -127,7 +85,7 @@ export const upcomingShows: UpcomingShow[] = [
     description: 'Shakespeare\'s timeless tale of star-crossed lovers comes to life in this stunning new production. A fresh take on the classic romance that will captivate audiences of all ages.',
     role: 'Romeo',
     venue: 'Grand Theater, Los Angeles',
-    show_date: '2025-11-15',
+    show_date: '2025-11-13',
     ticket_url: 'https://example.com/tickets/romeo-juliet',
     image_url: 'https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=800'
   },

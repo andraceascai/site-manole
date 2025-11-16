@@ -45,8 +45,8 @@ export default function Navbar() {
             Despre mine
           </Link>
           <Link
-            to="/previous-shows"
-            className={`nav-link ${isActive("/previous-shows")}`}
+            to="/repertoriu"
+            className={`nav-link ${isActive("/repertoriu")}`}
             onClick={closeNavbar}
           >
             Repertoriu

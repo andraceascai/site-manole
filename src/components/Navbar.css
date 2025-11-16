@@ -16,14 +16,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  /* border: 1px solid rgba(212, 175, 55, 0.2); */
+  border: 1px solid #4e0013;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
 }
 
 .nav-container:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.15);
+  /* border-color: rgba(212, 175, 55, 0.4); */
+  border-color: #4e0013;
+  /* box-shadow: 0 12px 40px rgba(212, 175, 55, 0.15); */
+  box-shadow: 0 12px 40px #24020b;
 }
 
 .nav-brand {
@@ -40,7 +43,8 @@
 .brand-first {
   font-size: 2rem;
   font-weight: 400;
-  font-family: 'Imperial Script', cursive;
+  /* font-family: 'Imperial Script', cursive; */
+  font-family: 'Ephesis', cursive;
   color: var(--text-secondary);
   letter-spacing: 1px;
   transition: all 0.3s ease;
@@ -49,28 +53,30 @@
 .brand-last {
   font-size: 2.2rem;
   font-weight: 400;
-  font-family: 'Imperial Script', cursive;
-  color: var(--gold);
+  /* font-family: 'Imperial Script', cursive; */
+  font-family: 'Ephesis', cursive;
+  color: var(--text-secondary);
   letter-spacing: 1px;
   position: relative;
   transition: all 0.3s ease;
-  text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+  text-shadow: 0 2px 8px rgba(212, 55, 55, 0.3);
 }
 
-.brand-last::after {
+.brand-last::after{
   content: '';
   position: absolute;
   bottom: -4px;
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background: linear-gradient(90deg, transparent, #9f052b, transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .nav-brand:hover .brand-first {
-  color: var(--gold-light);
+  /* color: var(--gold-light); */
+  /* color: #4e0013; */
 }
 
 .nav-brand:hover .brand-last::after {
@@ -94,12 +100,13 @@
 
 .nav-link:hover {
   color: var(--gold);
-  background: rgba(212, 175, 55, 0.1);
+  /* background: rgba(212, 175, 55, 0.1); */
+  background: #3705117b;
 }
 
 .nav-link.active {
-  color: var(--gold);
-  background: rgba(212, 175, 55, 0.15);
+  color: #ffffff;
+  background: #5207196c;
 }
 
 .nav-link.active::after {

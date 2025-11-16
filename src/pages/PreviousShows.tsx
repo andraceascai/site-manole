@@ -1,27 +1,58 @@
 import { useNavigate } from "react-router-dom";
 import { useSEO } from "../hooks/useSEO";
-import { previousShows } from "../data/mockData";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./PreviousShows.css";
+
+interface Repertoriu {
+  _id: string;
+  repertoriuID: number;
+  titlu: string;
+  personaj: string;
+  locatie: string;
+  data: string;
+  descriere: string;
+  galerie: string[];
+  categorie: string;
+  cover: string;
+}
 
 export default function PreviousShows() {
   useSEO(
-    "Previous Shows - Manole",
+    "Repertoriu - Manole",
     "Explore past performances and theater productions. View show details, roles, and gallery images."
   );
 
+  const [repertorii, setRepertorii] = useState<Repertoriu[]>([]);
+
   const navigate = useNavigate();
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
+  // const formatDate = (dateString: string) => {
+  //   return new Date(dateString).toLocaleDateString("en-US", {
+  //     year: "numeric",
+  //     month: "long",
+  //     day: "numeric",
+  //   });
+  // };
+
+  const handleShowClick = (showId: number) => {
+    navigate(`/repertoriu/${showId}`);
   };
 
-  const handleShowClick = (showId: string) => {
-    navigate(`/show/${showId}`);
-  };
+  useEffect(() => {
+    const fetchRepertorii = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3000/api/repertorii"
+        );
+        setRepertorii(response.data);
+      } catch (error) {
+        console.error("Error fetching repertorii:", error);
+      }
+    };
+    fetchRepertorii();
+  }, []);
+  // console.log(repertorii);
 
   return (
     <>
@@ -34,27 +65,25 @@ export default function PreviousShows() {
           </p>
 
           <div className="shows-grid">
-            {previousShows.map((show, index) => (
+            {repertorii.map((repertoriu, index) => (
               <div
-                key={show.id}
+                key={repertoriu.repertoriuID}
                 className="show-card fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => handleShowClick(show.id)}
+                onClick={() => handleShowClick(repertoriu.repertoriuID)}
               >
                 <div className="show-image">
-                  <img src={show.image_url} alt={show.title} />
+                  <img src={repertoriu.cover} alt={repertoriu.titlu} />
                   <div className="show-overlay">
                     <span className="view-details">Vezi detalii</span>
                   </div>
                 </div>
                 <div className="show-info">
-                  <h3 className="show-title">{show.title}</h3>
-                  <p className="show-role">{show.role}</p>
+                  <h3 className="show-title">{repertoriu.titlu}</h3>
+                  <p className="show-role">{repertoriu.personaj}</p>
                   <div className="show-meta">
-                    <span className="show-venue">{show.venue}</span>
-                    <span className="show-date">
-                      {formatDate(show.show_date)}
-                    </span>
+                    <span className="show-venue">{repertoriu.locatie}</span>
+                    <span className="show-date">{repertoriu.data}</span>
                   </div>
                 </div>
               </div>

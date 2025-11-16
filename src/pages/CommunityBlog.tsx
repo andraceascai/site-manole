@@ -29,6 +29,7 @@ export default function CommunityBlog() {
   const [newComment, setNewComment] = useState<
     Record<string, { name: string; email: string; text: string }>
   >({});
+  const [showComments, setShowComments] = useState(false);
 
   const handleReaction = (postId: string, emoji: string) => {
     const userPostReactions = userReactions[postId] || new Set();
@@ -132,7 +133,7 @@ export default function CommunityBlog() {
 
         <div className="new-post-cta">
           <button
-            className="btn-primary"
+            className="postButton"
             onClick={() => setShowNewPostForm(!showNewPostForm)}
           >
             {showNewPostForm ? "Anulează" : "Creează o postare nouă"}
@@ -141,11 +142,11 @@ export default function CommunityBlog() {
 
         {showNewPostForm && (
           <form className="new-post-form fade-in" onSubmit={handleSubmitPost}>
-            <h3>Împărtășește-ți povestea</h3>
+            <h4>Împărtășește-ți povestea</h4>
             <div className="form-row">
               <input
                 type="text"
-                placeholder="Your Name *"
+                placeholder="Nume *"
                 value={newPost.author_name}
                 onChange={(e) =>
                   setNewPost({ ...newPost, author_name: e.target.value })
@@ -154,7 +155,7 @@ export default function CommunityBlog() {
               />
               <input
                 type="email"
-                placeholder="Your Email *"
+                placeholder="Email *"
                 value={newPost.author_email}
                 onChange={(e) =>
                   setNewPost({ ...newPost, author_email: e.target.value })
@@ -164,7 +165,7 @@ export default function CommunityBlog() {
             </div>
             <input
               type="text"
-              placeholder="Post Title *"
+              placeholder="Titlu *"
               value={newPost.title}
               onChange={(e) =>
                 setNewPost({ ...newPost, title: e.target.value })
@@ -172,7 +173,7 @@ export default function CommunityBlog() {
               required
             />
             <textarea
-              placeholder="Write your post content... *"
+              placeholder="Povestea ta... *"
               rows={8}
               value={newPost.content}
               onChange={(e) =>
@@ -180,7 +181,7 @@ export default function CommunityBlog() {
               }
               required
             />
-            <button type="submit" className="btn-primary">
+            <button type="submit" className="postButton">
               Postează
             </button>
           </form>
@@ -232,99 +233,116 @@ export default function CommunityBlog() {
                 </div>
 
                 <div className="post-comments-section">
-                  <h3 className="comments-title">
+                  {/* <h3
+                    className="comments-title"
+                    onClick={() => setShowComments(!showComments)}
+                  >
                     Comentarii ({(comments[post.id] || []).length})
-                  </h3>
+                  </h3> */}
+                  <button
+                    type="button"
+                    className="comments-title"
+                    onClick={() => setShowComments(!showComments)}
+                  >
+                    Comentarii ({(comments[post.id] || []).length})
+                  </button>
 
-                  {comments[post.id] && comments[post.id].length > 0 && (
-                    <div className="comments-list">
-                      {comments[post.id].map((comment) => (
-                        <div
-                          key={comment.id}
-                          className={`comment ${
-                            comment.is_actor_response ? "actor-comment" : ""
-                          }`}
-                        >
-                          <div className="comment-header">
-                            <span className="comment-author">
-                              {comment.author_name}
-                              {comment.is_actor_response && (
-                                <span className="actor-badge">Actor</span>
-                              )}
-                            </span>
-                            <span className="comment-date">
-                              {formatDate(comment.created_at)}
-                            </span>
-                          </div>
-                          <p className="comment-text">{comment.comment_text}</p>
+                  {showComments &&
+                    comments[post.id] &&
+                    comments[post.id].length > 0 && (
+                      <>
+                        <div className="comments-list">
+                          {comments[post.id].map((comment) => (
+                            <div
+                              key={comment.id}
+                              className={`comment ${
+                                comment.is_actor_response ? "actor-comment" : ""
+                              }`}
+                            >
+                              <div className="comment-header">
+                                <span className="comment-author">
+                                  {comment.author_name}
+                                  {comment.is_actor_response && (
+                                    <span className="actor-badge">Actor</span>
+                                  )}
+                                </span>
+                                <span className="comment-date">
+                                  {formatDate(comment.created_at)}
+                                </span>
+                              </div>
+                              <p className="comment-text">
+                                {comment.comment_text}
+                              </p>
+                            </div>
+                          ))}
                         </div>
-                      ))}
-                    </div>
-                  )}
-
-                  <div className="comment-form">
-                    <h4>Lasă un comentariu</h4>
-                    <input
-                      type="text"
-                      placeholder="Your Name"
-                      value={newComment[post.id]?.name || ""}
-                      onChange={(e) =>
-                        setNewComment((prev) => ({
-                          ...prev,
-                          [post.id]: {
-                            ...(prev[post.id] || {
-                              name: "",
-                              email: "",
-                              text: "",
-                            }),
-                            name: e.target.value,
-                          },
-                        }))
-                      }
-                    />
-                    <input
-                      type="email"
-                      placeholder="Your Email"
-                      value={newComment[post.id]?.email || ""}
-                      onChange={(e) =>
-                        setNewComment((prev) => ({
-                          ...prev,
-                          [post.id]: {
-                            ...(prev[post.id] || {
-                              name: "",
-                              email: "",
-                              text: "",
-                            }),
-                            email: e.target.value,
-                          },
-                        }))
-                      }
-                    />
-                    <textarea
-                      placeholder="Your Comment"
-                      rows={4}
-                      value={newComment[post.id]?.text || ""}
-                      onChange={(e) =>
-                        setNewComment((prev) => ({
-                          ...prev,
-                          [post.id]: {
-                            ...(prev[post.id] || {
-                              name: "",
-                              email: "",
-                              text: "",
-                            }),
-                            text: e.target.value,
-                          },
-                        }))
-                      }
-                    />
-                    <button
-                      className="btn-primary"
-                      onClick={() => handleSubmitComment(post.id)}
-                    >
-                      Postează
-                    </button>
-                  </div>
+                        <div className="comment-form">
+                          <h4 style={{ margin: "auto", marginBottom: "3%" }}>
+                            Lasă un comentariu
+                          </h4>
+                          <input
+                            type="text"
+                            placeholder="Nume"
+                            value={newComment[post.id]?.name || ""}
+                            onChange={(e) =>
+                              setNewComment((prev) => ({
+                                ...prev,
+                                [post.id]: {
+                                  ...(prev[post.id] || {
+                                    name: "",
+                                    email: "",
+                                    text: "",
+                                  }),
+                                  name: e.target.value,
+                                },
+                              }))
+                            }
+                          />
+                          <input
+                            type="email"
+                            placeholder="Email"
+                            value={newComment[post.id]?.email || ""}
+                            onChange={(e) =>
+                              setNewComment((prev) => ({
+                                ...prev,
+                                [post.id]: {
+                                  ...(prev[post.id] || {
+                                    name: "",
+                                    email: "",
+                                    text: "",
+                                  }),
+                                  email: e.target.value,
+                                },
+                              }))
+                            }
+                          />
+                          <textarea
+                            placeholder="Comentariu"
+                            rows={4}
+                            value={newComment[post.id]?.text || ""}
+                            onChange={(e) =>
+                              setNewComment((prev) => ({
+                                ...prev,
+                                [post.id]: {
+                                  ...(prev[post.id] || {
+                                    name: "",
+                                    email: "",
+                                    text: "",
+                                  }),
+                                  text: e.target.value,
+                                },
+                              }))
+                            }
+                          />
+                          <button
+                            className="postButton"
+                            onClick={() => handleSubmitComment(post.id)}
+                          >
+                            Postează
+                          </button>
+                        </div>
+                      </>
+                    )}
                 </div>
               </div>
             </article>

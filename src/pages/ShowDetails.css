@@ -1,6 +1,6 @@
 .show-details-page {
   min-height: 100vh;
-  padding: 40px 20px 80px;
+  padding: 0px 20px 80px;
 }
 
 .back-button {
@@ -16,7 +16,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin: 0 auto 40px;
+  margin: 0 auto 20px;
+  margin-top: 0;
   max-width: 1200px;
 }
 
@@ -33,11 +34,11 @@
 
 .show-details-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
-.show-details-header h1 {
-  font-size: 3.5rem;
+.show-details-header h2 {
+  font-size: 2rem;
   margin-bottom: 1rem;
   background: linear-gradient(135deg, var(--text-primary), var(--gold-light));
   -webkit-background-clip: text;
@@ -54,19 +55,6 @@
 .show-details-content {
   display: grid;
   gap: 40px;
-}
-
-.show-details-main-image {
-  border-radius: 20px;
-  overflow: hidden;
-  max-height: 600px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-.show-details-main-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .show-details-info {

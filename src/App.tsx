@@ -13,8 +13,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/previous-shows" element={<PreviousShows />} />
-        <Route path="/show/:id" element={<ShowDetails />} />
+        <Route path="/repertoriu" element={<PreviousShows />} />
+        <Route path="/repertoriu/:id" element={<ShowDetails />} />
         <Route path="/upcoming-shows" element={<UpcomingShows />} />
         <Route path="/blog" element={<ActorBlog />} />
         <Route path="/community" element={<CommunityBlog />} />
