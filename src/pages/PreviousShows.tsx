@@ -3,6 +3,7 @@ import { useSEO } from "../hooks/useSEO";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./PreviousShows.css";
+import Navbar from "../components/Navbar";
 
 interface Repertoriu {
   _id: string;
@@ -18,22 +19,16 @@ interface Repertoriu {
 }
 
 export default function PreviousShows() {
-  useSEO(
-    "Repertoriu - Manole",
-    "Explore past performances and theater productions. View show details, roles, and gallery images."
-  );
+  useSEO("Repertoriu", "Spectacol de teatru");
 
   const [repertorii, setRepertorii] = useState<Repertoriu[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
 
   const navigate = useNavigate();
-
-  // const formatDate = (dateString: string) => {
-  //   return new Date(dateString).toLocaleDateString("en-US", {
-  //     year: "numeric",
-  //     month: "long",
-  //     day: "numeric",
-  //   });
-  // };
 
   const handleShowClick = (showId: number) => {
     navigate(`/repertoriu/${showId}`);
@@ -45,24 +40,41 @@ export default function PreviousShows() {
         const response = await axios.get(
           "http://localhost:3000/api/repertorii"
         );
-        setRepertorii(response.data);
+        let fetchedRepertorii = [...response.data];
+        fetchedRepertorii = fetchedRepertorii.filter((r: Repertoriu) =>
+          r.titlu
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .includes(searchTerm.toLowerCase())
+        );
+        setRepertorii(fetchedRepertorii);
       } catch (error) {
         console.error("Error fetching repertorii:", error);
       }
     };
     fetchRepertorii();
-  }, []);
-  // console.log(repertorii);
+  }, [searchTerm]);
 
   return (
     <>
       <div className="previous-shows-page">
+        <Navbar />
         <div className="container section-padding">
           <h1 className="page-title fade-in">"Am fost acolo"</h1>
           <p className="page-subtitle fade-in">
             Tot ce am jucat, dar n-am uitat. Roluri, amintiri și oameni care
             mi-au rămas în suflet.
           </p>
+
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Caută spectacole..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+          </div>
 
           <div className="shows-grid">
             {repertorii.map((repertoriu, index) => (

@@ -1,9 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useSEO } from "../hooks/useSEO";
 import "./ShowDetails.css";
 import { useEffect, useState } from "react";
 import ImageLightbox from "../components/ImageLightbox";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 interface Repertoriu {
   _id: string;
@@ -27,14 +27,6 @@ export default function ShowDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  // const show = previousShows.find((s) => s.id === id);
-  // const show = repertoriu.find((r) => r.repertoriuID.toString() === id);
-
-  // useSEO(
-  //   repertoriu ? `${repertoriu.titlu} - Manole` : "Spectacolul nu a fost găsit",
-  //   repertoriu?.descriere
-  // );
-
   useEffect(() => {
     const fetchRepertoriu = async (id: number) => {
       try {
@@ -48,7 +40,6 @@ export default function ShowDetails() {
     };
     fetchRepertoriu(Number(id));
   }, []);
-  console.log(repertoriu);
   if (!repertoriu) {
     return (
       <div className="container section-padding">
@@ -75,6 +66,7 @@ export default function ShowDetails() {
         />
       )}
       <div className="show-details-page">
+        <Navbar />
         <button className="back-button" onClick={() => navigate("/repertoriu")}>
           <svg
             width="24"

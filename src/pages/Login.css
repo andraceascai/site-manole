@@ -1,0 +1,51 @@
+.container-login {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://res.cloudinary.com/dzpbhkapo/image/upload/v1764677748/IMG-20251116-WA0001_ff1rn0.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  }
+  .form-login {
+    background: #ffffff42;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.1);
+  }
+  .title-login {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .input-login {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .button-login {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #0972e1bf;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .error-login {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+  }

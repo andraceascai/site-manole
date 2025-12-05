@@ -28,22 +28,22 @@
   top: 20px;
   right: 20px;
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid rgba(212, 55, 55, 0.3);
   border-radius: 50%;
   width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gold);
+  color: #840222;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10001;
 }
 
 .lightbox-close:hover {
-  background: rgba(212, 175, 55, 0.2);
-  border-color: var(--gold);
+  background: rgba(212, 55, 55, 0.2);
+  border-color: #840222;
   transform: rotate(90deg);
 }
 

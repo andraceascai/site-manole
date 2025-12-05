@@ -1,6 +1,12 @@
 .blog-page {
   min-height: 100vh;
+  width: 99vw;
   padding-bottom: 60px;
+  background-image: url('https://res.cloudinary.com/dzpbhkapo/image/upload/v1764677748/IMG-20251116-WA0001_ff1rn0.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
 }
 
 .new-post-cta {
@@ -13,7 +19,7 @@
   width: 80%;
   margin: auto;
   background: var(--dark-secondary);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid rgba(212, 55, 55, 0.3);
   border-radius: 16px;
   padding: 50px;
   margin-bottom: 60px;
@@ -21,7 +27,8 @@
 
 .new-post-form h4 {
   margin-bottom: 15px;
-  color: var(--gold);
+  color: var(--text-primary);
+  text-shadow: 3px 7px 7px #7d0422;
 }
 
 .form-row {
@@ -34,7 +41,7 @@
 .new-post-form input,
 .new-post-form textarea {
   margin-bottom: 10px;
-  border-color: rgba(255, 217, 1, 0.47);
+  border-color: #4e0014a1;
   border-radius: 5px;
   border-width: 1px;
   padding: 3px;
@@ -50,16 +57,16 @@
 .blog-post {
   margin-left: 2%;
   margin-right: 2%;
-  background: var(--dark-secondary);
+  background: rgba(31, 31, 32, 0.60);
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 55, 55, 0.2);
   transition: all 0.3s ease;
 }
 
 .blog-post:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.15);
+  border-color: rgba(116, 17, 17, 0.5);
+  box-shadow: 0 15px 50px rgba(212, 55, 55, 0.2);
 }
 
 .post-image {
@@ -83,12 +90,13 @@
   align-items: flex-start;
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(212, 55, 55, 0.2);
 }
 
 .post-title {
   font-size: 1.8rem;
   margin-bottom: 0.1rem;
+  text-shadow: 3px 7px 7px #7d0422;
 }
 
 .post-author {
@@ -114,51 +122,8 @@
   margin-bottom: 1rem;
 }
 
-.post-reactions {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 40px;
-  padding: 20px;
-  background: var(--dark-bg);
-  border-radius: 12px;
-  flex-wrap: wrap;
-}
-
-.reaction-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: var(--dark-tertiary);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.reaction-btn:hover {
-  background: rgba(212, 175, 55, 0.1);
-  border-color: var(--gold);
-  transform: scale(1.05);
-}
-
-.reaction-btn.active {
-  background: rgba(212, 175, 55, 0.2);
-  border-color: var(--gold);
-}
-
-.reaction-emoji {
-  font-size: 1.3rem;
-}
-
-.reaction-count {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--gold);
-}
-
 .post-comments-section {
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-top: 1px solid rgba(212, 55, 55, 0.2);
   padding-top: 30px;
 }
 
@@ -166,32 +131,32 @@
   width: fit-content;
   margin: auto;
   background: var(--dark-tertiary);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 55, 55, 0.2);
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .postButton:hover {
-  background: rgba(212, 175, 55, 0.1);
-  border-color: var(--gold);
+  background: rgba(212, 55, 55, 0.1);
+  border-color: rgba(116, 17, 17, 0.5);
   transform: scale(1.05);
 }
 
 .comments-title {
   font-size: 1.5rem;
   margin-bottom: 25px;
-  color: var(--gold);
+  color: var(--text-primary);
   background: var(--dark-tertiary);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(113, 19, 19, 0.678);
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .comments-title:hover {
-  background: rgba(212, 175, 55, 0.1);
-  border-color: var(--gold);
+  background: rgba(212, 55, 55, 0.1);
+  border-color: #6f021d;
   transform: scale(1.05);
 }
 
@@ -206,17 +171,17 @@
   background: var(--dark-bg);
   padding: 20px;
   border-radius: 12px;
-  border: 1px solid rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(159, 39, 39, 0.279);
   transition: all 0.3s ease;
 }
 
 .comment:hover {
-  border-color: rgba(212, 175, 55, 0.3);
+  border-color: rgba(212, 55, 55, 0.3);
 }
 
 .comment.actor-comment {
-  border-color: var(--gold);
-  background: rgba(212, 175, 55, 0.05);
+  border-color: rgba(116, 17, 17, 0.822);
+  background: rgba(212, 55, 55, 0.05);
 }
 
 .comment-header {
@@ -256,17 +221,48 @@
 .comment-form h4 {
   margin-bottom: 20px;
   font-size: 1rem;
-  color: var(--gold);
+  color: var(--text-primary);
+  text-shadow: 3px 7px 7px #7d0422;
 }
 
 .comment-form input,
 .comment-form textarea {
   margin-bottom: 15px;
-  border-color: rgba(255, 217, 1, 0.47);
+  border-color: #4e0014a1;
   border-radius: 5px;
   border-width: 1px;
   padding: 3px;
   background-color: rgb(40, 38, 38);
+}
+
+.delete-post-button, 
+.delete-comment-button{
+  background-color: red;
+  margin-bottom: 5px;
+}
+
+.edit-post-button{
+  background-color: rgba(0, 179, 255, 0.826);
+  margin-left: 5px;
+}
+
+.error-text{
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.edit-form-textarea{
+  width: 80vw;
+  height: 80px;
+}
+.edit-submit-button{
+  background-color: rgba(7, 246, 7, 0.68);
+}
+.edit-cancel-button{
+  background-color: rgba(255, 0, 0, 0.598);
+  margin-left: 5px;
 }
 
 

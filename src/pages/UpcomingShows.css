@@ -1,6 +1,12 @@
 .upcoming-shows-page {
   min-height: 100vh;
+  width: 99vw;
   padding-bottom: 60px;
+  background-image: url('https://res.cloudinary.com/dzpbhkapo/image/upload/v1764677748/IMG-20251116-WA0001_ff1rn0.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
 }
 
 .upcoming-shows-grid {
@@ -12,17 +18,17 @@
   display: grid;
   grid-template-columns: 350px 1fr;
   gap: 30px;
-  background: var(--dark-secondary);
+  background: rgba(31, 31, 32, 0.75);
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 55, 55, 0.2);
   transition: all 0.3s ease;
   margin: 1%;
 }
 
 .upcoming-show-card:hover {
-  border-color: rgba(212, 175, 55, 0.5);
-  box-shadow: 0 15px 50px rgba(212, 175, 55, 0.2);
+  border-color: rgba(116, 17, 17, 0.5);
+  box-shadow: 0 15px 50px rgba(212, 55, 55, 0.2);
   transform: translateY(-5px);
 }
 
@@ -30,6 +36,7 @@
   position: relative;
   height: 100%;
   min-height: 350px;
+  cursor: zoom-in;
 }
 
 .upcoming-show-image img {
@@ -42,13 +49,28 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  background: var(--gold);
+  background: #4e0013;
   color: var(--dark-bg);
   padding: 8px 20px;
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 600;
   animation: pulse 2s infinite;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+  
+.search-container input {
+    width: 50vw; 
+    padding: 10px;
+    margin-left: -25px;
+    display: block; 
+    border-radius: 50px;
+    border-color: #060000;
 }
 
 @keyframes pulse {
@@ -73,14 +95,15 @@
 
 .upcoming-show-title {
   font-size: 2.5rem;
+  text-shadow: 3px 7px 7px #7d0422;
   margin-bottom: 0.5rem;
   margin-top: 0;
 }
 
 .upcoming-show-role {
   display: inline-block;
-  background: rgba(212, 175, 55, 0.2);
-  color: var(--gold);
+  background: #4e0014;
+  color: var(--text-primary);
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 0.9rem;
@@ -113,12 +136,13 @@
 }
 
 .detail-item svg {
-  color: var(--gold);
+  color: #6f021d;
   flex-shrink: 0;
 }
 
 .detail-item.countdown {
-  color: var(--gold);
+  color: var(--text-muted);
+  text-shadow: 3px 7px 7px #7d0422;
   font-weight: 600;
 }
 
@@ -127,6 +151,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  color: #faf8f8;
 }
 
 .ticket-btn svg {

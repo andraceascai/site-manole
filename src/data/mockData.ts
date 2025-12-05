@@ -1,43 +1,3 @@
-export interface PreviousShow {
-  id: string;
-  title: string;
-  description: string;
-  role: string;
-  venue: string;
-  show_date: string;
-  image_url: string;
-  gallery_images: string[];
-}
-
-export interface UpcomingShow {
-  id: string;
-  title: string;
-  description: string;
-  role: string;
-  venue: string;
-  show_date: string;
-  ticket_url: string;
-  image_url: string;
-}
-
-export interface BlogPost {
-  id: string;
-  title: string;
-  content: string;
-  image_url: string;
-  created_at: string;
-  author_name?: string;
-}
-
-export interface Comment {
-  id: string;
-  author_name: string;
-  author_email: string;
-  comment_text: string;
-  is_actor_response: boolean;
-  created_at: string;
-}
-
 export interface PortfolioPhoto {
   id: string;
   url: string;
@@ -47,131 +7,33 @@ export interface PortfolioPhoto {
 export const portfolioPhotos: PortfolioPhoto[] = [
   {
     id: '1',
-    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1760003252/IMG-20251002-WA0008_ljjhkk.jpg',
+    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1764849491/boook_akbtmt.png',
     alt: 'Professional headshot'
   },
   {
     id: '2',
-    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1760003252/IMG-20251002-WA0009_zqhlz3.jpg',
-    alt: 'Stage performance moment'
+    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1763641123/Untitled_Session09963_gtkqsc.jpg',
+    alt: 'Professional headshot'
   },
   {
     id: '3',
-    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1760003252/IMG-20251002-WA0007_ypresn.jpg',
-    alt: 'Character portrayal'
+    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1763641129/3BAR0011_of0ks3.jpg',
+    alt: 'Stage performance moment'
   },
   {
     id: '4',
-    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1760003252/IMG-20251002-WA0003_sjwel2.jpg',
-    alt: 'Theatrical expression'
+    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1763641123/Untitled_Session09943_xnd5bk.jpg',
+    alt: 'Character portrayal'
   },
   {
     id: '5',
-    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1760003252/IMG-20251002-WA0006_du1b3t.jpg',
-    alt: 'Dramatic scene'
+    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1763641124/3BAR0044_m8p1pz.jpg',
+    alt: 'Theatrical expression'
   },
   {
     id: '6',
-    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1760003252/IMG-20251002-WA0001_xpnnlf.jpg',
-    alt: 'Behind the scenes'
+    url: 'https://res.cloudinary.com/dzpbhkapo/image/upload/v1763641122/Untitled_Session09927_ptqhla.jpg',
+    alt: 'Dramatic scene'
   },
-  
 ];
 
-export const upcomingShows: UpcomingShow[] = [
-  {
-    id: '1',
-    title: 'Romeo and Juliet',
-    description: 'Shakespeare\'s timeless tale of star-crossed lovers comes to life in this stunning new production. A fresh take on the classic romance that will captivate audiences of all ages.',
-    role: 'Romeo',
-    venue: 'Grand Theater, Los Angeles',
-    show_date: '2025-11-13',
-    ticket_url: 'https://example.com/tickets/romeo-juliet',
-    image_url: 'https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=800'
-  },
-  {
-    id: '2',
-    title: 'Death of a Salesman',
-    description: 'Arthur Miller\'s powerful American classic exploring the American Dream and family dynamics. A thought-provoking performance that resonates deeply in today\'s world.',
-    role: 'Willy Loman',
-    venue: 'Lincoln Center, NYC',
-    show_date: '2025-12-05',
-    ticket_url: 'https://example.com/tickets/death-salesman',
-    image_url: 'https://images.pexels.com/photos/3662630/pexels-photo-3662630.jpeg?auto=compress&cs=tinysrgb&w=800'
-  }
-];
-
-export const actorBlogPosts: BlogPost[] = [
-  {
-    id: '1',
-    title: 'The Art of Transformation: My Journey as an Actor',
-    content: `Acting has always been more than just a profession for me—it's a calling, a passion that drives every decision I make. From the moment I step onto the stage, I'm no longer myself; I become someone else entirely, living their joys, their sorrows, their triumphs and defeats.
-
-What many people don't realize is the incredible amount of preparation that goes into every role. It's not just about memorizing lines; it's about understanding the character's motivations, their history, their relationships. I spend weeks researching, observing, and immersing myself in the world of each character I portray.
-
-The most rewarding part of this journey has been connecting with audiences. When I see someone moved to tears, or hear laughter rippling through the theater, I know that the story we're telling has touched something real and human in them. That's the magic of theater—it reminds us of our shared humanity.`,
-    image_url: 'https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=800',
-    created_at: '2025-09-15T10:30:00Z'
-  },
-  {
-    id: '2',
-    title: 'Behind the Curtain: Preparing for Hamlet',
-    content: `Preparing to play Hamlet was one of the most challenging and rewarding experiences of my career. Shakespeare's prince is complex, contradictory, and deeply human—qualities that make him both fascinating and difficult to portray.
-
-I spent months studying different interpretations of the character, from Laurence Olivier to Kenneth Branagh. But ultimately, I had to find my own Hamlet, one that felt authentic to me and relevant to contemporary audiences.
-
-The rehearsal process was intense. We worked with movement coaches, voice coaches, and dialect specialists. Every gesture, every inflection had to serve the story. Director Sarah Thompson pushed us to find the raw emotion beneath Shakespeare's poetry, to make these 400-year-old words feel immediate and urgent.`,
-    image_url: 'https://images.pexels.com/photos/3662630/pexels-photo-3662630.jpeg?auto=compress&cs=tinysrgb&w=800',
-    created_at: '2025-08-22T14:15:00Z'
-  }
-];
-
-export const communityBlogPosts: BlogPost[] = [
-  {
-    id: '1',
-    title: 'My First Theater Experience',
-    content: `I'll never forget the first time I saw live theater. It was a production of Les Misérables, and I was completely mesmerized. The power of the performances, the music, the sets—everything came together to create something magical. That night changed my life and sparked my love for the performing arts.`,
-    image_url: '',
-    created_at: '2025-09-10T16:45:00Z',
-    author_name: 'Sarah Johnson'
-  },
-  {
-    id: '2',
-    title: 'The Impact of Theater on Mental Health',
-    content: `As someone who struggles with anxiety, I've found that attending theater performances has been incredibly therapeutic. There's something about being present in the moment, witnessing stories unfold before your eyes, that helps quiet the racing thoughts. I'm grateful for actors who bring these stories to life and create spaces where we can feel, reflect, and heal.`,
-    image_url: '',
-    created_at: '2025-09-05T11:20:00Z',
-    author_name: 'Michael Chen'
-  }
-];
-
-export const mockComments: Record<string, Comment[]> = {
-  '1': [
-    {
-      id: '1',
-      author_name: 'Emily Davis',
-      author_email: 'emily@example.com',
-      comment_text: 'This is such an inspiring post! Your dedication to your craft really shows in every performance.',
-      is_actor_response: false,
-      created_at: '2025-09-16T09:15:00Z'
-    },
-    {
-      id: '2',
-      author_name: 'Actor Name',
-      author_email: 'actor@example.com',
-      comment_text: 'Thank you so much, Emily! It means the world to hear that the passion comes through.',
-      is_actor_response: true,
-      created_at: '2025-09-16T10:30:00Z'
-    }
-  ],
-  '2': [
-    {
-      id: '3',
-      author_name: 'James Wilson',
-      author_email: 'james@example.com',
-      comment_text: 'Your Hamlet was absolutely phenomenal. Best performance I\'ve seen in years!',
-      is_actor_response: false,
-      created_at: '2025-08-23T15:45:00Z'
-    }
-  ]
-};

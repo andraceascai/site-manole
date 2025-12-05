@@ -19,61 +19,61 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="actor-navbar">
-      <div className="nav-container">
-        <Link className="nav-brand" to="/" onClick={closeNavbar}>
-          <span className="brand-first">Marius</span>
-          <span className="brand-last">Manole</span>
-        </Link>
+    // <nav className="actor-navbar">
+    <div className="nav-container">
+      <Link className="nav-brand" to="/" onClick={closeNavbar}>
+        <span className="brand-first">Marius</span>
+        <span className="brand-last">Manole</span>
+      </Link>
 
-        <button
-          className={`nav-toggle ${isOpen ? "active" : ""}`}
-          onClick={toggleNavbar}
-          aria-label="Toggle navigation"
+      <button
+        className={`nav-toggle ${isOpen ? "active" : ""}`}
+        onClick={toggleNavbar}
+        aria-label="Toggle navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div className={`nav-menu ${isOpen ? "active" : ""}`}>
+        <Link
+          to="/"
+          className={`nav-link ${isActive("/")}`}
+          onClick={closeNavbar}
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <div className={`nav-menu ${isOpen ? "active" : ""}`}>
-          <Link
-            to="/"
-            className={`nav-link ${isActive("/")}`}
-            onClick={closeNavbar}
-          >
-            Despre mine
-          </Link>
-          <Link
-            to="/repertoriu"
-            className={`nav-link ${isActive("/repertoriu")}`}
-            onClick={closeNavbar}
-          >
-            Repertoriu
-          </Link>
-          <Link
-            to="/upcoming-shows"
-            className={`nav-link ${isActive("/upcoming-shows")}`}
-            onClick={closeNavbar}
-          >
-            Ce urmează
-          </Link>
-          <Link
-            to="/blog"
-            className={`nav-link ${isActive("/blog")}`}
-            onClick={closeNavbar}
-          >
-            Gânduri
-          </Link>
-          <Link
-            to="/community"
-            className={`nav-link ${isActive("/community")}`}
-            onClick={closeNavbar}
-          >
-            Scena voastră
-          </Link>
-        </div>
+          Despre mine
+        </Link>
+        <Link
+          to="/repertoriu"
+          className={`nav-link ${isActive("/repertoriu")}`}
+          onClick={closeNavbar}
+        >
+          Repertoriu
+        </Link>
+        <Link
+          to="/spectacole"
+          className={`nav-link ${isActive("/spectacole")}`}
+          onClick={closeNavbar}
+        >
+          Ce urmează
+        </Link>
+        <Link
+          to="/ganduri"
+          className={`nav-link ${isActive("/ganduri")}`}
+          onClick={closeNavbar}
+        >
+          Gânduri
+        </Link>
+        <Link
+          to="/scena_voastra"
+          className={`nav-link ${isActive("/scena_voastra")}`}
+          onClick={closeNavbar}
+        >
+          Scena voastră
+        </Link>
       </div>
-    </nav>
+    </div>
+    // </nav>
   );
 }
