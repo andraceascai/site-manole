@@ -190,7 +190,6 @@ export default function HomePage() {
               <p>
                 Puteți să mă contactați la adresa de mail{" "}
                 <a href="mailto:mariusman2025@gmail.com">aici</a>
-                {/* mariusman2025@gmail.com */}
               </p>
 
               <div className="cta-buttons">
@@ -200,6 +199,11 @@ export default function HomePage() {
                 <Link to="/ganduri" className="btn-secondary">
                   Citește-mi blogul
                 </Link>
+                <br />
+                <p style={{ fontSize: "0.9rem" }}>
+                  © 2025 Marius Manole. Toate drepturile rezervate.
+                </p>
+                <p style={{ fontSize: "0.9rem" }}>Dezvoltat de Andra Ceascai</p>
               </div>
             </div>
           </div>
