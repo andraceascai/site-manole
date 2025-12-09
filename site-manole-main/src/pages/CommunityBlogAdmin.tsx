@@ -38,10 +38,12 @@ export default function CommunityBlogAdmin() {
     [postID: number]: boolean;
   }>({});
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const handleSubmitPost = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/scena_voastra", {
+      await axios.post(`${apiUrl}/scena_voastra`, {
         titlu: titlu,
         nume: nume,
         mail: mail,
@@ -58,15 +60,12 @@ export default function CommunityBlogAdmin() {
     const inputData = commentInputs[postID];
     console.log(postID, typeof postID);
     try {
-      await axios.post(
-        `http://localhost:3000/api/scena_voastra/comentarii/${postID}`,
-        {
-          postID: postID,
-          comentariu: inputData.comentariu,
-          autor: inputData.nume,
-          mail: inputData.mail,
-        }
-      );
+      await axios.post(`${apiUrl}/scena_voastra/comentarii/${postID}`, {
+        postID: postID,
+        comentariu: inputData.comentariu,
+        autor: inputData.nume,
+        mail: inputData.mail,
+      });
       setCommentsInputs({
         ...commentInputs,
         [postID]: { ...commentInputs[postID], comentariu: "" },
@@ -79,9 +78,7 @@ export default function CommunityBlogAdmin() {
   const handleDeletePost = async (id: string) => {
     if (window.confirm("Esti sigur ca vrei sa stergi aceasta postare?")) {
       try {
-        await axios.delete(
-          `http://localhost:3000/api/communitypost/delete/${id}`
-        );
+        await axios.delete(`${apiUrl}/communitypost/delete/${id}`);
         setPosts(posts.filter((idea) => idea._id !== id));
       } catch (error) {
         console.error("Error deleting post:", error);
@@ -93,7 +90,7 @@ export default function CommunityBlogAdmin() {
     if (window.confirm("Esti sigur ca vrei sa stergi acest comentariu?")) {
       try {
         await axios.delete(
-          `http://localhost:3000/api/scena_voastra/${postID}/comentarii/${commentId}`
+          `${apiUrl}/scena_voastra/${postID}/comentarii/${commentId}`
         );
       } catch (error) {
         console.error("Error deleting comment:", error);
@@ -104,9 +101,7 @@ export default function CommunityBlogAdmin() {
   useEffect(() => {
     const fetchPostari = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/scena_voastra`
-        );
+        const response = await axios.get(`${apiUrl}/scena_voastra`);
         setPosts(response.data.slice().reverse());
       } catch (error) {
         console.error("Error fetching repertorii:", error);

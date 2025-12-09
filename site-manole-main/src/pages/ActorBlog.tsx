@@ -33,19 +33,18 @@ export default function ActorBlog() {
     [postID: number]: boolean;
   }>({});
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const handleSubmitComment = async (postID: number) => {
     const inputData = commentInputs[postID];
     console.log(postID, typeof postID);
     try {
-      await axios.post(
-        `http://localhost:3000/api/ganduri/comentarii/${postID}`,
-        {
-          postID: postID,
-          comentariu: inputData.comentariu,
-          autor: inputData.nume,
-          mail: inputData.mail,
-        }
-      );
+      await axios.post(`${apiUrl}/ganduri/comentarii/${postID}`, {
+        postID: postID,
+        comentariu: inputData.comentariu,
+        autor: inputData.nume,
+        mail: inputData.mail,
+      });
       setCommentsInputs({
         ...commentInputs,
         [postID]: { ...commentInputs[postID], comentariu: "" },
@@ -58,7 +57,7 @@ export default function ActorBlog() {
   useEffect(() => {
     const fetchPostari = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/ganduri`);
+        const response = await axios.get(`${apiUrl}/ganduri`);
         setPosts(response.data.slice().reverse());
       } catch (error) {
         console.error("Error fetching repertorii:", error);

@@ -19,7 +19,6 @@ export default function Navbar() {
   };
 
   return (
-    // <nav className="actor-navbar">
     <div className="nav-container">
       <Link className="nav-brand" to="/" onClick={closeNavbar}>
         <span className="brand-first">Marius</span>
@@ -74,6 +73,5 @@ export default function Navbar() {
         </Link>
       </div>
     </div>
-    // </nav>
   );
 }

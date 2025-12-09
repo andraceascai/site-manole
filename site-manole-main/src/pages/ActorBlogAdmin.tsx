@@ -41,19 +41,18 @@ export default function ActorBlogAdmin() {
   }>({});
   const [editContent, setEditContent] = useState("");
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const handleSubmitComment = async (postID: number) => {
     const inputData = commentInputs[postID];
     console.log(postID, typeof postID);
     try {
-      await axios.post(
-        `http://localhost:3000/api/ganduri/comentarii/${postID}`,
-        {
-          postID: postID,
-          comentariu: inputData.comentariu,
-          autor: inputData.nume,
-          mail: inputData.mail,
-        }
-      );
+      await axios.post(`${apiUrl}/ganduri/comentarii/${postID}`, {
+        postID: postID,
+        comentariu: inputData.comentariu,
+        autor: inputData.nume,
+        mail: inputData.mail,
+      });
       setCommentsInputs({
         ...commentInputs,
         [postID]: { ...commentInputs[postID], comentariu: "" },
@@ -66,7 +65,7 @@ export default function ActorBlogAdmin() {
   const handleDeletePost = async (id: string) => {
     if (window.confirm("Esti sigur ca vrei sa stergi aceasta postare?")) {
       try {
-        await axios.delete(`http://localhost:3000/api/post/delete/${id}`);
+        await axios.delete(`${apiUrl}/post/delete/${id}`);
         setPosts(posts.filter((idea) => idea._id !== id));
       } catch (error) {
         console.error("Error deleting post:", error);
@@ -78,7 +77,7 @@ export default function ActorBlogAdmin() {
     if (window.confirm("Esti sigur ca vrei sa stergi acest comentariu?")) {
       try {
         await axios.delete(
-          `http://localhost:3000/api/ganduri/${postID}/comentarii/${commentId}`
+          `${apiUrl}/ganduri/${postID}/comentarii/${commentId}`
         );
       } catch (error) {
         console.error("Error deleting comment:", error);
@@ -92,7 +91,7 @@ export default function ActorBlogAdmin() {
     postID: number
   ) => {
     try {
-      await axios.put(`http://localhost:3000/api/ganduri/${_id}`, {
+      await axios.put(`${apiUrl}/api/ganduri/${_id}`, {
         post: editContent,
       });
       if (prev === editContent) {
@@ -113,7 +112,7 @@ export default function ActorBlogAdmin() {
   useEffect(() => {
     const fetchPostari = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/ganduri`);
+        const response = await axios.get(`${apiUrl}/api/ganduri`);
         setPosts(response.data.slice().reverse());
       } catch (error) {
         console.error("Error fetching repertorii:", error);
@@ -125,7 +124,7 @@ export default function ActorBlogAdmin() {
   const handleSubmitPost = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/ganduri", {
+      await axios.post(`${apiUrl}/api/ganduri`, {
         titlu: titlu,
         post: content,
       });

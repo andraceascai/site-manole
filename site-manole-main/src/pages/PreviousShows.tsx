@@ -24,6 +24,8 @@ export default function PreviousShows() {
   const [repertorii, setRepertorii] = useState<Repertoriu[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
@@ -37,9 +39,7 @@ export default function PreviousShows() {
   useEffect(() => {
     const fetchRepertorii = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:3000/api/repertorii"
-        );
+        const response = await axios.get(`${apiUrl}/repertorii`);
         let fetchedRepertorii = [...response.data];
         fetchedRepertorii = fetchedRepertorii.filter((r: Repertoriu) =>
           r.titlu

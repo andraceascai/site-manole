@@ -52,6 +52,8 @@ export default function Blog() {
 
   const [erorrs, setErrors] = useState<{ [key: string]: string }>({});
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const handleSubmitPost = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -73,7 +75,7 @@ export default function Blog() {
     }
 
     try {
-      await axios.post("http://localhost:3000/api/scena_voastra", {
+      await axios.post(`${apiUrl}/scena_voastra`, {
         titlu: titlu,
         nume: nume,
         mail: mail,
@@ -91,15 +93,12 @@ export default function Blog() {
     const inputData = commentInputs[postID];
     console.log(postID, typeof postID);
     try {
-      await axios.post(
-        `http://localhost:3000/api/scena_voastra/comentarii/${postID}`,
-        {
-          postID: postID,
-          comentariu: inputData.comentariu,
-          autor: inputData.nume,
-          mail: inputData.mail,
-        }
-      );
+      await axios.post(`${apiUrl}/scena_voastra/comentarii/${postID}`, {
+        postID: postID,
+        comentariu: inputData.comentariu,
+        autor: inputData.nume,
+        mail: inputData.mail,
+      });
       setCommentsInputs({
         ...commentInputs,
         [postID]: { ...commentInputs[postID], comentariu: "" },
@@ -112,9 +111,7 @@ export default function Blog() {
   useEffect(() => {
     const fetchPostari = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/scena_voastra`
-        );
+        const response = await axios.get(`${apiUrl}/scena_voastra`);
         setPosts(response.data.slice().reverse());
       } catch (error) {
         console.error("Error fetching repertorii:", error);

@@ -27,12 +27,12 @@ export default function ShowDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchRepertoriu = async (id: number) => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/repertorii/${id}`
-        );
+        const response = await axios.get(`${apiUrl}/repertorii/${id}`);
         setRepertoriu(response.data);
       } catch (error) {
         console.error("Error fetching repertorii:", error);

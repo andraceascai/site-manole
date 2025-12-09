@@ -28,6 +28,7 @@ export default function UpcomingShows() {
 
   const [spectacole, setSpectacole] = useState<Spectacole[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -36,9 +37,7 @@ export default function UpcomingShows() {
   useEffect(() => {
     const fetchSpectacole = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:3000/api/spectacole"
-        );
+        const response = await axios.get(`${apiUrl}/spectacole`);
         let fetchedSpectacole = [...response.data];
         fetchedSpectacole = fetchedSpectacole.filter((s: Spectacole) =>
           s.titlu

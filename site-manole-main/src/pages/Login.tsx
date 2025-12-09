@@ -11,12 +11,14 @@ export default function Login({ onLogin }: LoginProps) {
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError("");
 
     try {
-      const response = await axios.post("http://localhost:3000/api/login", {
+      const response = await axios.post(`${apiUrl}/login`, {
         email,
         password,
       });
