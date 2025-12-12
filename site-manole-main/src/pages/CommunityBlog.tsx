@@ -254,9 +254,7 @@ export default function Blog() {
                                 <span className="comment-author">
                                   {comment.autor}
                                   {comment.mail ===
-                                    "marius27man@icloud.com" && (
-                                    <span className="actor-badge"></span>
-                                  )}
+                                    "marius27man@icloud.com" && <span></span>}
                                 </span>
                                 <span className="comment-date">
                                   {formatDate(comment.data)}

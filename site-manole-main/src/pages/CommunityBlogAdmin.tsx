@@ -265,9 +265,7 @@ export default function CommunityBlogAdmin() {
                                       {comment.autor}
                                       {comment.mail ===
                                         "marius27man@icloud.com" && (
-                                        <span className="actor-badge">
-                                          Marius Manole
-                                        </span>
+                                        <span></span>
                                       )}
                                     </span>
                                     <span className="comment-date">
