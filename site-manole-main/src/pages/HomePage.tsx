@@ -203,7 +203,10 @@ export default function HomePage() {
                 <p style={{ fontSize: "0.9rem" }}>
                   © 2025 Marius Manole. Toate drepturile rezervate.
                 </p>
-                <p style={{ fontSize: "0.9rem" }}>Dezvoltat de Andra Ceascai</p>
+                <p style={{ fontSize: "0.9rem" }}>
+                  Dezvoltat de{"  "}
+                  <a href="mailto:maceascai@gmail.com"> Andra Ceascai</a>{" "}
+                </p>
               </div>
             </div>
           </div>
