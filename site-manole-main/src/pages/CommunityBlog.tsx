@@ -244,8 +244,7 @@ export default function Blog() {
                             <div
                               key={i}
                               className={`comment ${
-                                comment.mail === "marius27man@icloud.com" ||
-                                "marius27man@yahoo.com"
+                                comment.mail === "marius27man@yahoo.com"
                                   ? "actor-comment"
                                   : ""
                               }`}
