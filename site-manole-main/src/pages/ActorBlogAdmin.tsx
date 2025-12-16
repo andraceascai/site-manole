@@ -112,7 +112,7 @@ export default function ActorBlogAdmin() {
   useEffect(() => {
     const fetchPostari = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/api/ganduri`);
+        const response = await axios.get(`${apiUrl}/ganduri`);
         setPosts(response.data.slice().reverse());
       } catch (error) {
         console.error("Error fetching repertorii:", error);
@@ -213,7 +213,7 @@ export default function ActorBlogAdmin() {
                       className="delete-post-button"
                       onClick={() => handleDeletePost(post._id)}
                     >
-                      Delete
+                      Șterge
                     </button>
                     <button
                       className="edit-post-button"
@@ -225,7 +225,7 @@ export default function ActorBlogAdmin() {
                         });
                       }}
                     >
-                      Edit
+                      Editează
                     </button>
 
                     {isEditing[post.postID] && (
@@ -245,7 +245,7 @@ export default function ActorBlogAdmin() {
                           />
                           <br />
                           <button className="edit-submit-button" type="submit">
-                            Submit
+                            Postează
                           </button>
                           <button
                             className="edit-cancel-button"
@@ -256,7 +256,7 @@ export default function ActorBlogAdmin() {
                               })
                             }
                           >
-                            Cancel
+                            Anulează
                           </button>
                         </div>
                       </form>
@@ -311,7 +311,7 @@ export default function ActorBlogAdmin() {
                                       )
                                     }
                                   >
-                                    Delete
+                                    Șterge
                                   </button>
                                   <div className="comment-header">
                                     <span className="comment-author">

@@ -203,7 +203,7 @@ export default function CommunityBlogAdmin() {
                       className="delete-post-button"
                       onClick={() => handleDeletePost(post._id)}
                     >
-                      Delete
+                      Șterge
                     </button>
                     <div className="post-header">
                       <div>
@@ -257,7 +257,7 @@ export default function CommunityBlogAdmin() {
                                       )
                                     }
                                   >
-                                    Delete
+                                    Șterge
                                   </button>
                                   <div className="comment-header">
                                     <span className="comment-author">
