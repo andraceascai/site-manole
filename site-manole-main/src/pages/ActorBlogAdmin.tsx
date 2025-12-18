@@ -91,7 +91,7 @@ export default function ActorBlogAdmin() {
     postID: number
   ) => {
     try {
-      await axios.put(`${apiUrl}/api/ganduri/${_id}`, {
+      await axios.put(`${apiUrl}/ganduri/${_id}`, {
         post: editContent,
       });
       if (prev === editContent) {
@@ -124,7 +124,7 @@ export default function ActorBlogAdmin() {
   const handleSubmitPost = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post(`${apiUrl}/api/ganduri`, {
+      await axios.post(`${apiUrl}/ganduri`, {
         titlu: titlu,
         post: content,
       });
